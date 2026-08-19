@@ -17,13 +17,13 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Contact Us</h4>
             <div className="space-y-3">
-              <a href="mailto:support@closingacademy.com" className="flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-colors">
+              <a href="mailto:support@mediatraffics.com" className="flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-colors">
                 <Mail className="w-4 h-4" />
-                support@closingacademy.com
+                support@mediatraffics.com
               </a>
-              <a href="tel:+18005551234" className="flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-colors">
+              <a href="tel:+18286772148" className="flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-colors">
                 <Phone className="w-4 h-4" />
-                (800) 555-1234
+                Call a recruiter: (828) 677-2148
               </a>
             </div>
           </div>
