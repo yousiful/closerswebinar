@@ -129,24 +129,27 @@ async function fetchWithTimeout() {
 
 ```tsx
 import { handleApiCall, ApiError } from './utils/apiErrorHandler';
-import { supabase } from './lib/supabase';
 
 async function submitForm(formData) {
   try {
     const result = await handleApiCall(
       async () => {
-        const { data, error } = await supabase
-          .from('leads')
-          .insert([formData]);
+        const response = await fetch('/.netlify/functions/ghl-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
 
-        if (error) {
+        if (!response.ok) {
           throw new ApiError(
-            error.message,
-            error.code === 'PGRST116' ? 409 : 500,
-            'leads',
+            'Lead submission failed',
+            response.status,
+            'ghl-lead',
             { formData }
           );
         }
+
+        const data = await response.json();
 
         return data;
       },
@@ -455,7 +458,7 @@ window.addEventListener('online', () => {
 
 ## Error Logging
 
-Errors are automatically logged to the Supabase database. The error logger queues errors when offline and syncs them when connection is restored.
+Errors are logged to the browser console as a structured object with component, severity, URL, user agent and any extra context you pass.
 
 ### Manual Error Logging
 
@@ -480,43 +483,3 @@ errorLogger.log('Custom error message', {
 ```
 
 ---
-
-## Database Setup
-
-To enable error logging, create the `error_logs` table in Supabase:
-
-```sql
-CREATE TABLE IF NOT EXISTS error_logs (
-  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  message text NOT NULL,
-  stack text,
-  component text,
-  user_agent text NOT NULL,
-  url text NOT NULL,
-  timestamp timestamptz NOT NULL,
-  severity text NOT NULL CHECK (severity IN ('low', 'medium', 'high', 'critical')),
-  context jsonb,
-  created_at timestamptz DEFAULT now()
-);
-
--- Enable RLS
-ALTER TABLE error_logs ENABLE ROW LEVEL SECURITY;
-
--- Allow anonymous users to insert error logs
-CREATE POLICY "Anyone can log errors"
-  ON error_logs
-  FOR INSERT
-  TO anon
-  WITH CHECK (true);
-
--- Only authenticated admins can view error logs
-CREATE POLICY "Only admins can view error logs"
-  ON error_logs
-  FOR SELECT
-  TO authenticated
-  USING (true);
-
--- Create index for better query performance
-CREATE INDEX idx_error_logs_timestamp ON error_logs(timestamp DESC);
-CREATE INDEX idx_error_logs_severity ON error_logs(severity);
-```

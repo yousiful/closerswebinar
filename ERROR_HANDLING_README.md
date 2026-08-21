@@ -8,8 +8,8 @@ A production-ready error handling system with graceful degradation, user-friendl
 ✅ **Network Error Handling** - Graceful handling of network failures
 ✅ **API Error Management** - Smart retry logic and status code handling
 ✅ **Validation System** - Form validation with user-friendly messages
-✅ **Offline Support** - Queue errors when offline, sync when online
-✅ **Error Logging** - Automatic logging to Supabase database
+✅ **Offline Support** - Detects connection loss and warns the visitor
+✅ **Error Logging** - Structured error logging to the browser console
 ✅ **User-Friendly UI** - Beautiful error messages and indicators
 ✅ **TypeScript Support** - Full type safety throughout
 
@@ -159,7 +159,7 @@ Tracks network connectivity status.
 
 ## Error Logging
 
-Errors are automatically logged to Supabase with:
+Errors are logged to the browser console as a structured object with:
 - Error message and stack trace
 - Component name
 - User agent and URL
@@ -249,23 +249,21 @@ try {
 }
 ```
 
-## Database Schema
+## Log Shape
 
-The `error_logs` table is automatically created with the following structure:
+Each logged error is a plain object printed to the console:
 
-```sql
-error_logs (
-  id uuid PRIMARY KEY,
-  message text NOT NULL,
-  stack text,
-  component text,
-  user_agent text NOT NULL,
-  url text NOT NULL,
-  timestamp timestamptz NOT NULL,
-  severity text NOT NULL CHECK (severity IN ('low', 'medium', 'high', 'critical')),
-  context jsonb,
-  created_at timestamptz DEFAULT now()
-)
+```ts
+{
+  message: string;
+  stack?: string;
+  component?: string;
+  user_agent: string;
+  url: string;
+  timestamp: string;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  context?: Record<string, unknown>;
+}
 ```
 
 ## Best Practices

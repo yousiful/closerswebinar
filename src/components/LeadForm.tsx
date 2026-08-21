@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { ArrowRight, Loader2 } from 'lucide-react';
-import { submitLead } from '../lib/supabase';
+import { submitLead } from '../lib/leads';
 
 interface LeadFormProps {
   onSuccess: () => void;

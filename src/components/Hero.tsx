@@ -1,4 +1,7 @@
-import { Flame, Sparkles, TrendingUp, ArrowRight, Users, BookOpen, Clock, CheckCircle } from 'lucide-react';
+import { useState } from 'react';
+import { Flame, Sparkles, TrendingUp, Users, BookOpen, Clock, CheckCircle } from 'lucide-react';
+import { LeadForm } from './LeadForm';
+import { SuccessModal } from './SuccessModal';
 
 const activityItems = [
   '🔥 Marcus J. just closed a $14,500 deal',
@@ -12,6 +15,8 @@ const activityItems = [
 ];
 
 export function Hero() {
+  const [showSuccess, setShowSuccess] = useState(false);
+
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-amber-500/8 via-transparent to-emerald-500/10" />
@@ -103,16 +108,7 @@ export function Hero() {
         </div>
 
         <div className="max-w-lg mx-auto space-y-4 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-          <a
-            href="https://go.mediatraffics.com/intro-video"
-            className="block w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:via-orange-400 hover:to-amber-500 text-white font-bold py-6 px-8 rounded-2xl transition-all transform hover:scale-105 hover:shadow-2xl shadow-lg shadow-amber-500/40 relative overflow-hidden group text-center animate-warm-glow"
-          >
-            <div className="absolute inset-0 animate-shimmer" />
-            <span className="relative z-10 flex items-center justify-center gap-3 text-xl">
-              Claim My Spot Before It's Gone
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </a>
+          <LeadForm onSuccess={() => setShowSuccess(true)} />
 
           <a
             href="https://go.mediatraffics.com/intro-video"
@@ -147,6 +143,8 @@ export function Hero() {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+
+      <SuccessModal isOpen={showSuccess} onClose={() => setShowSuccess(false)} />
     </div>
   );
 }

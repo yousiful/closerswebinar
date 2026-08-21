@@ -8,7 +8,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">High-Ticket Closer Academy</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Media Traffics</h3>
             <p className="text-slate-400 leading-relaxed">
               Empowering professionals to build six-figure remote closing careers through expert training and exclusive opportunities.
             </p>
@@ -40,7 +40,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-8">
           <div className="text-center text-slate-400 text-sm">
-            <p>&copy; {currentYear} High-Ticket Closer Academy. All rights reserved.</p>
+            <p>&copy; {currentYear} Media Traffics LLC. All rights reserved.</p>
             <p className="mt-2">Results may vary. Your success depends on your effort, dedication, and market conditions.</p>
           </div>
         </div>
