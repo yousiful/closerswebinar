@@ -60,8 +60,16 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const firstName = spaceIndex === -1 ? fullName : fullName.slice(0, spaceIndex);
   const lastName = spaceIndex === -1 ? '' : fullName.slice(spaceIndex + 1).trim();
 
+  // utm_campaign is often a raw numeric Meta campaign ID, not a readable name.
+  // Keep it out of tags (tags should stay human-scannable) and carry it in
+  // source instead, alongside utm_source, so attribution isn't lost.
   const tags = [...TAGS];
-  if (payload.utm_campaign) tags.push(`utm-campaign-${payload.utm_campaign}`);
+  const sourceParts = [SOURCE];
+  if (payload.utm_source) sourceParts.push(payload.utm_source);
+  if (payload.utm_campaign) sourceParts.push(`campaign:${payload.utm_campaign}`);
+  const source = sourceParts.length > 1
+    ? `${sourceParts[0]} (${sourceParts.slice(1).join(', ')})`
+    : sourceParts[0];
 
   try {
     const response = await fetch(`${GHL_BASE}/contacts/upsert`, {
@@ -79,7 +87,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
         name: fullName,
         email,
         phone,
-        source: payload.utm_source ? `${SOURCE} (${payload.utm_source})` : SOURCE,
+        source,
         tags,
       }),
     });
