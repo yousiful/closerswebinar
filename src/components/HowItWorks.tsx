@@ -98,7 +98,7 @@ export function HowItWorks() {
 
         <div className="mt-12 text-center">
           <a
-            href="https://go.mediatraffics.com/intro-video"
+            href="https://go.mediatraffics.com/video"
             className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/30"
           >
             Start My 21-Day Journey and Secure My Spot

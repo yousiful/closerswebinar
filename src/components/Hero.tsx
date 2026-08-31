@@ -1,7 +1,4 @@
-import { useState } from 'react';
 import { Flame, Sparkles, TrendingUp, Users, BookOpen, Clock, CheckCircle } from 'lucide-react';
-import { LeadForm } from './LeadForm';
-import { SuccessModal } from './SuccessModal';
 
 const activityItems = [
   '🔥 Marcus J. just closed a $14,500 deal',
@@ -15,8 +12,6 @@ const activityItems = [
 ];
 
 export function Hero() {
-  const [showSuccess, setShowSuccess] = useState(false);
-
   return (
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-amber-500/8 via-transparent to-emerald-500/10" />
@@ -108,14 +103,12 @@ export function Hero() {
         </div>
 
         <div className="max-w-lg mx-auto space-y-4 animate-fade-in-up" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-          <LeadForm onSuccess={() => setShowSuccess(true)} />
-
           <a
-            href="https://go.mediatraffics.com/intro-video"
-            className="block w-full bg-white/8 hover:bg-white/12 text-white font-semibold py-4 px-8 rounded-2xl transition-all border border-white/20 hover:border-emerald-500/40 text-center"
+            href="https://go.mediatraffics.com/video"
+            className="block w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold py-4 px-8 rounded-2xl transition-all transform hover:scale-105 hover:shadow-2xl shadow-lg shadow-emerald-500/50 text-center"
           >
             <span className="flex items-center justify-center gap-2 text-base">
-              <BookOpen className="w-5 h-5 text-emerald-400" />
+              <BookOpen className="w-5 h-5" />
               Watch Free Intro. See the Daily Training in Action
             </span>
           </a>
@@ -143,8 +136,6 @@ export function Hero() {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
-
-      <SuccessModal isOpen={showSuccess} onClose={() => setShowSuccess(false)} />
     </div>
   );
 }

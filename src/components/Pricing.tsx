@@ -154,7 +154,7 @@ export function Pricing() {
 
               <div className="space-y-4 mb-8">
                 <a
-                  href="https://go.mediatraffics.com/intro-video"
+                  href="https://go.mediatraffics.com/video"
                   className="block w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:via-orange-400 hover:to-amber-500 text-white font-bold py-6 px-8 rounded-2xl transition-all transform hover:scale-[1.02] hover:shadow-2xl shadow-xl shadow-amber-500/40 relative overflow-hidden group text-center animate-warm-glow"
                 >
                   <div className="absolute inset-0 animate-shimmer" />
@@ -165,7 +165,7 @@ export function Pricing() {
                 </a>
 
                 <a
-                  href="https://go.mediatraffics.com/intro-video"
+                  href="https://go.mediatraffics.com/video"
                   className="block w-full bg-white/8 hover:bg-white/12 text-white font-semibold py-4 px-8 rounded-2xl transition-all border border-white/15 hover:border-emerald-500/40 text-center"
                 >
                   <span className="flex items-center justify-center gap-2">

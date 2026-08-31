@@ -111,7 +111,7 @@ export function FAQ() {
             Watch the free intro video. It covers the most common questions in detail, including what a real training session looks like.
           </p>
           <a
-            href="https://go.mediatraffics.com/intro-video"
+            href="https://go.mediatraffics.com/video"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-bold py-3 px-7 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/25"
           >
             Watch the Free Intro Now

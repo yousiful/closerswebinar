@@ -106,7 +106,7 @@ export function FreedomClub() {
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <a
-                href="https://go.mediatraffics.com/intro-video"
+                href="https://go.mediatraffics.com/video"
                 className="flex-1 sm:flex-none bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-3"
               >
                 Secure My Freedom Club Spot
