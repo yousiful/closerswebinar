@@ -42,6 +42,7 @@ export function Footer() {
           <div className="text-center text-slate-400 text-sm">
             <p>&copy; {currentYear} Media Traffics LLC. All rights reserved.</p>
             <p className="mt-2">Results may vary. Your success depends on your effort, dedication, and market conditions.</p>
+            <p className="mt-2">This site is not part of, and has not been reviewed, approved, or endorsed by Facebook/Meta or Google in any way.</p>
           </div>
         </div>
       </div>
