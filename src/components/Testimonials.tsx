@@ -4,21 +4,21 @@ const testimonials = [
   {
     name: 'Sarah Mitchell',
     role: 'Remote Closer',
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=112&h=112&fit=crop',
     content: 'I went from struggling to find clients to closing $15K+ deals weekly. The Freedom Club network is unmatched. Real providers with real budgets.',
     earnings: '$47K in 90 days'
   },
   {
     name: 'Marcus Johnson',
     role: 'Certified High-Ticket Closer',
-    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=112&h=112&fit=crop',
     content: 'The daily training transformed my closing game. Within 3 weeks of certification, I had access to more qualified opportunities than I could handle.',
     earnings: '$62K in 4 months'
   },
   {
     name: 'Jessica Chen',
     role: 'Remote Sales Professional',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=112&h=112&fit=crop',
     content: 'Best decision I made this year. The certification gave me credibility, and the Freedom Club gave me opportunities. I closed my first $20K deal in week 2.',
     earnings: '$83K in 6 months'
   }
@@ -60,6 +60,9 @@ export function Testimonials() {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
+                  width={56}
+                  height={56}
+                  loading="lazy"
                   className="w-14 h-14 rounded-full object-cover border-2 border-emerald-500/30 group-hover:border-emerald-400/50 group-hover:shadow-lg group-hover:shadow-emerald-400/30 transition-all duration-300"
                 />
                 <div>

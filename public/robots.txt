@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://closers.kenjiai.com/sitemap.xml

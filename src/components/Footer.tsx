@@ -31,9 +31,9 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-slate-400 hover:text-emerald-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="block text-slate-400 hover:text-emerald-400 transition-colors">Terms of Service</a>
-              <a href="#" className="block text-slate-400 hover:text-emerald-400 transition-colors">Refund Policy</a>
+              <a href="https://mediatraffics.com/privacy" className="block text-slate-400 hover:text-emerald-400 transition-colors">Privacy Policy</a>
+              <a href="https://mediatraffics.com/terms" className="block text-slate-400 hover:text-emerald-400 transition-colors">Terms of Service</a>
+              <a href="https://mediatraffics.com/refund-policy" className="block text-slate-400 hover:text-emerald-400 transition-colors">Refund Policy</a>
             </div>
           </div>
         </div>
